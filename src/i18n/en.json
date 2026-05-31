@@ -1,0 +1,78 @@
+{
+  "app": { "name": "Clinic Manager" },
+  "nav": {
+    "dashboard": "Dashboard",
+    "appointments": "Appointments",
+    "patients": "Patients",
+    "waiting": "Waiting List",
+    "reports": "Reports",
+    "analytics": "Analytics",
+    "logout": "Log out"
+  },
+  "auth": {
+    "login": "Log in",
+    "email": "Email",
+    "password": "Password",
+    "signin": "Sign in",
+    "invalid": "Invalid email or password"
+  },
+  "dashboard": {
+    "title": "Overview",
+    "totalPatients": "Total Patients",
+    "todayAppointments": "Today's Appointments",
+    "waiting": "Currently Waiting",
+    "completedThisMonth": "Completed This Month",
+    "apptsByStatus": "Appointments by Status",
+    "apptsTrend": "Appointments (Last 30 Days)",
+    "patientsByGender": "Patients by Gender"
+  },
+  "patient": {
+    "fullName": "Full Name",
+    "phone": "Phone",
+    "email": "Email",
+    "gender": "Gender",
+    "dob": "Date of Birth",
+    "age": "Age",
+    "bloodType": "Blood Type",
+    "allergies": "Allergies",
+    "address": "Address",
+    "notes": "Notes",
+    "male": "Male",
+    "female": "Female",
+    "other": "Other"
+  },
+  "appointment": {
+    "scheduledAt": "Scheduled At",
+    "status": "Status",
+    "reason": "Reason",
+    "notes": "Notes",
+    "scheduled": "Scheduled",
+    "waiting": "Waiting",
+    "in_progress": "In Progress",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "no_show": "No Show",
+    "bookFollowUp": "Book Follow-up",
+    "visitSummary": "Visit Summary"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "search": "Search",
+    "confirm": "Confirm",
+    "confirmDelete": "Are you sure you want to delete this?",
+    "loading": "Loading...",
+    "noData": "No data",
+    "exportExcel": "Export Excel",
+    "exportPDF": "Export PDF",
+    "print": "Print",
+    "openDoc": "Open",
+    "required": "This field is required",
+    "saved": "Saved successfully",
+    "deleted": "Deleted successfully",
+    "error": "Something went wrong"
+  }
+}

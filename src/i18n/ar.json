@@ -1,0 +1,78 @@
+{
+  "app": { "name": "إدارة العيادة" },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "appointments": "المواعيد",
+    "patients": "المرضى",
+    "waiting": "قائمة الانتظار",
+    "reports": "التقارير",
+    "analytics": "التحليلات",
+    "logout": "تسجيل الخروج"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "signin": "دخول",
+    "invalid": "بريد إلكتروني أو كلمة مرور غير صحيحة"
+  },
+  "dashboard": {
+    "title": "نظرة عامة",
+    "totalPatients": "إجمالي المرضى",
+    "todayAppointments": "مواعيد اليوم",
+    "waiting": "في الانتظار حالياً",
+    "completedThisMonth": "المكتملة هذا الشهر",
+    "apptsByStatus": "المواعيد حسب الحالة",
+    "apptsTrend": "المواعيد (آخر 30 يوماً)",
+    "patientsByGender": "المرضى حسب الجنس"
+  },
+  "patient": {
+    "fullName": "الاسم الكامل",
+    "phone": "الهاتف",
+    "email": "البريد الإلكتروني",
+    "gender": "الجنس",
+    "dob": "تاريخ الميلاد",
+    "age": "العمر",
+    "bloodType": "فصيلة الدم",
+    "allergies": "الحساسية",
+    "address": "العنوان",
+    "notes": "ملاحظات",
+    "male": "ذكر",
+    "female": "أنثى",
+    "other": "آخر"
+  },
+  "appointment": {
+    "scheduledAt": "موعد",
+    "status": "الحالة",
+    "reason": "السبب",
+    "notes": "ملاحظات",
+    "scheduled": "مجدول",
+    "waiting": "في الانتظار",
+    "in_progress": "قيد الكشف",
+    "completed": "مكتمل",
+    "cancelled": "ملغي",
+    "no_show": "لم يحضر",
+    "bookFollowUp": "حجز متابعة",
+    "visitSummary": "ملخص الزيارة"
+  },
+  "common": {
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "add": "إضافة",
+    "search": "بحث",
+    "confirm": "تأكيد",
+    "confirmDelete": "هل أنت متأكد من الحذف؟",
+    "loading": "جارٍ التحميل...",
+    "noData": "لا توجد بيانات",
+    "exportExcel": "تصدير Excel",
+    "exportPDF": "تصدير PDF",
+    "print": "طباعة",
+    "openDoc": "فتح",
+    "required": "هذا الحقل مطلوب",
+    "saved": "تم الحفظ بنجاح",
+    "deleted": "تم الحذف بنجاح",
+    "error": "حدث خطأ ما"
+  }
+}
