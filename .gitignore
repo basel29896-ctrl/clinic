@@ -6,3 +6,7 @@ dist
 *.log
 .vercel
 supabase/.temp
+
+vercel.env
+b.log
+push*.log
