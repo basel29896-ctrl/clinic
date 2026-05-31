@@ -16,8 +16,7 @@ begin
     ('Sara Mahmoud',   '+201002223344', 'sara@example.com',   'female', '1992-07-25', 'A+',  null),
     ('Omar Khaled',    '+201003334455', 'omar@example.com',   'male',   '1978-11-02', 'B+',  'Aspirin'),
     ('Layla Ibrahim',  '+201004445566', 'layla@example.com',  'female', '2000-01-18', 'AB+', null),
-    ('Youssef Adel',   '+201005556677', 'youssef@example.com','male',   '1965-09-30', 'O-',  'Sulfa drugs')
-  returning id into p1; -- captures first only; fetch rest below
+    ('Youssef Adel',   '+201005556677', 'youssef@example.com','male',   '1965-09-30', 'O-',  'Sulfa drugs');
 
   select id into p1 from public.patients where email = 'ahmed@example.com';
   select id into p2 from public.patients where email = 'sara@example.com';

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabaseClient';
+import { calcAge } from '../utils/age';
 import { SkeletonTable } from '../components/ui/Skeleton';
 
 // Printable per-appointment visit summary.
@@ -18,7 +19,7 @@ export default function VisitSummary() {
     (async () => {
       const { data: a } = await supabase
         .from('appointments')
-        .select('*, patients(full_name, phone, age, gender, blood_type, allergies)')
+        .select('*, patients(full_name, phone, date_of_birth, gender, blood_type, allergies)')
         .eq('id', id).single();
       const { data: pr } = await supabase
         .from('prescriptions').select('*').eq('appointment_id', id);
@@ -54,7 +55,7 @@ export default function VisitSummary() {
         <dl className="grid grid-cols-2 gap-4 text-sm">
           <Row label={t('patient.fullName')} value={p?.full_name} />
           <Row label={t('patient.phone')} value={p?.phone} />
-          <Row label={t('patient.age')} value={p?.age} />
+          <Row label={t('patient.age')} value={calcAge(p?.date_of_birth)} />
           <Row label={t('patient.gender')} value={p?.gender && t(`patient.${p.gender}`)} />
           <Row label={t('patient.bloodType')} value={p?.blood_type} />
           <Row label={t('patient.allergies')} value={p?.allergies} />

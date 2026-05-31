@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabaseClient';
+import { calcAge } from '../utils/age';
 import { useAuth } from '../context/AuthContext';
 import LanguageToggle from '../components/LanguageToggle';
 import { SkeletonTable } from '../components/ui/Skeleton';
@@ -56,7 +57,7 @@ export default function PatientPortal() {
             {patient && (
               <div className="grid grid-cols-2 gap-4 rounded-xl border border-gray-200 bg-white p-6 sm:grid-cols-4">
                 <Info label={t('patient.fullName')} value={patient.full_name} />
-                <Info label={t('patient.age')} value={patient.age} />
+                <Info label={t('patient.age')} value={calcAge(patient.date_of_birth)} />
                 <Info label={t('patient.bloodType')} value={patient.blood_type} />
                 <Info label={t('patient.allergies')} value={patient.allergies} />
               </div>

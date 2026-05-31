@@ -61,12 +61,9 @@ create table if not exists public.patients (
   constraint dob_not_future check (date_of_birth is null or date_of_birth <= current_date)
 );
 
-alter table public.patients
-  add column if not exists age int
-  generated always as (
-    case when date_of_birth is null then null
-    else date_part('year', age(date_of_birth))::int end
-  ) stored;
+-- Note: age is intentionally NOT stored. A generated column would need an
+-- IMMUTABLE expression, but age depends on the current date. Age is computed
+-- in the frontend from date_of_birth (see src/utils/age.js) so it never drifts.
 
 -- ============================================================
 -- 3. appointments

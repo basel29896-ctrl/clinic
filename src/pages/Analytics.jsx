@@ -5,6 +5,7 @@ import {
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend,
 } from 'recharts';
 import { supabase } from '../lib/supabaseClient';
+import { calcAge } from '../utils/age';
 import { SkeletonTable } from '../components/ui/Skeleton';
 
 const COLORS = ['#0EA5E9', '#0284C7', '#7DD3FC', '#0369A1', '#BAE6FD', '#38BDF8'];
@@ -21,7 +22,7 @@ export default function Analytics() {
     (async () => {
       const [a, p] = await Promise.all([
         supabase.from('appointments').select('status, scheduled_at, reason'),
-        supabase.from('patients').select('gender, age, created_at'),
+        supabase.from('patients').select('gender, date_of_birth, created_at'),
       ]);
       if (!active) return;
       setAppts(a.data || []);
@@ -51,7 +52,7 @@ export default function Analytics() {
   const ageBuckets = useMemo(() => {
     const buckets = { '0-17': 0, '18-34': 0, '35-49': 0, '50-64': 0, '65+': 0 };
     patients.forEach((p) => {
-      const a = p.age;
+      const a = calcAge(p.date_of_birth);
       if (a == null) return;
       if (a < 18) buckets['0-17']++;
       else if (a < 35) buckets['18-34']++;

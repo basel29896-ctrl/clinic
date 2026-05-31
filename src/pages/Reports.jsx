@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { supabase } from '../lib/supabaseClient';
 import { exportToExcel } from '../utils/exportToExcel';
 import { exportToPDF } from '../utils/exportToPDF';
+import { calcAge } from '../utils/age';
 
 // Report definitions: which table + how to flatten each row.
 const REPORTS = {
@@ -24,7 +25,7 @@ const REPORTS = {
   patients: {
     label: 'Patients',
     table: 'patients',
-    select: 'full_name, phone, email, gender, age, blood_type, created_at',
+    select: 'full_name, phone, email, gender, date_of_birth, blood_type, created_at',
     dateCol: 'created_at',
     columns: ['Name', 'Phone', 'Email', 'Gender', 'Age', 'Blood Type'],
     map: (r) => ({
@@ -32,7 +33,7 @@ const REPORTS = {
       Phone: r.phone ?? '',
       Email: r.email ?? '',
       Gender: r.gender ?? '',
-      Age: r.age ?? '',
+      Age: calcAge(r.date_of_birth) ?? '',
       'Blood Type': r.blood_type ?? '',
     }),
   },

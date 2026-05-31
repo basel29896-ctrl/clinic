@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 import { supabase } from '../lib/supabaseClient';
+import { calcAge } from '../utils/age';
 import { SkeletonTable } from '../components/ui/Skeleton';
 
 export default function PatientDetail() {
@@ -85,7 +86,7 @@ export default function PatientDetail() {
         <Info label={t('patient.phone')} value={patient.phone} />
         <Info label={t('patient.email')} value={patient.email} />
         <Info label={t('patient.gender')} value={patient.gender && t(`patient.${patient.gender}`)} />
-        <Info label={t('patient.age')} value={patient.age} />
+        <Info label={t('patient.age')} value={calcAge(patient.date_of_birth)} />
         <Info label={t('patient.bloodType')} value={patient.blood_type} />
         <Info label={t('patient.allergies')} value={patient.allergies} />
         <Info label={t('patient.dob')} value={patient.date_of_birth} />

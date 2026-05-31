@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 import { supabase } from '../lib/supabaseClient';
+import { calcAge } from '../utils/age';
 import { SkeletonTable } from '../components/ui/Skeleton';
 import ConfirmModal from '../components/ui/ConfirmModal';
 
@@ -34,7 +35,7 @@ export default function Patients() {
     setLoading(true);
     const { data, error } = await supabase
       .from('patients')
-      .select('id, full_name, phone, email, gender, age, blood_type')
+      .select('id, full_name, phone, email, gender, date_of_birth, blood_type')
       .order('full_name');
     if (error) toast.error(error.message);
     else setRows(data || []);
@@ -97,7 +98,7 @@ export default function Patients() {
                   </td>
                   <td className="px-4 py-3 text-gray-600">{r.phone || '—'}</td>
                   <td className="px-4 py-3 text-gray-600">{r.gender ? t(`patient.${r.gender}`) : '—'}</td>
-                  <td className="px-4 py-3 text-gray-600">{r.age ?? '—'}</td>
+                  <td className="px-4 py-3 text-gray-600">{calcAge(r.date_of_birth) ?? '—'}</td>
                   <td className="px-4 py-3 text-gray-600">{r.blood_type || '—'}</td>
                   <td className="px-4 py-3 text-end">
                     <button onClick={() => { setEditing(r); setFormOpen(true); }}
