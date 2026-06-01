@@ -37,9 +37,15 @@ export function AuthProvider({ children }) {
       setLoading(false);
     });
 
-    const { data: sub } = supabase.auth.onAuthStateChange(async (_event, newSession) => {
+    // IMPORTANT: do NOT await supabase calls directly inside this callback.
+    // supabase-js holds an internal lock here; awaiting another supabase
+    // request deadlocks it and the profile fetch never resolves (pages hang
+    // on skeletons forever). Defer the fetch to a microtask/next tick.
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, newSession) => {
       setSession(newSession);
-      await loadProfile(newSession?.user?.id);
+      setTimeout(() => {
+        loadProfile(newSession?.user?.id);
+      }, 0);
     });
 
     return () => {
