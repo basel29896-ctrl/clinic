@@ -26,7 +26,7 @@ create policy app_config_admin_all on public.app_config
 -- 3. Set your deployment URL here (re-run this line to update it).
 --    >>> REPLACE the URL after deploying the Apps Script Web App. <<<
 insert into public.app_config (key, value)
-values ('sheets_webhook_url', 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE')
+values ('sheets_webhook_url', 'https://script.google.com/macros/s/AKfycby5ynB7n8q7qRXDvvahcDGzVG7k-YmhTPiqAxNb8u2FXm9eQ4U9gVRJK_lsqeWeoJ1P/exec')
 on conflict (key) do update set value = excluded.value;
 
 -- 4. Trigger function: build a payload (with patient name) and POST it.
